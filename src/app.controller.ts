@@ -9,4 +9,8 @@ export class AppController {
   getHello(): string {
     return this.appService.getHello();
   }
+  @Get('home')
+  HomePage(){
+    return 'home Page :  main header , all movie list , login & sign in buttons || if logged in add users watch list , and the upload button  '
+  }
 }
