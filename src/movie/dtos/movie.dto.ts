@@ -4,4 +4,5 @@ export class movieDto{
     synopsis: String; 
     poster : any;
     movieLink: string;
+    
 }
