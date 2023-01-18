@@ -37,7 +37,7 @@ export class UserService {
         const hashedpassword = await bcrypt.hash(user.password, user.salt);
         
     if (!user)
-    throw new NotFoundException('username ou password erronée');
+    throw new NotFoundException('wrong credentials');
 
     const hashedPassword = await bcrypt.hash(password, user.salt);
     if (hashedPassword === user.password) {
@@ -50,9 +50,15 @@ export class UserService {
       "access_token" : jwt
       }
     } else {
-      throw new NotFoundException('username ou password erronée');
+      throw new NotFoundException('wrong credentials');
     }
+    
+    
 }   
-        
+ async getUserById(user) : Promise<UserEntity> {
+  const userId= user.id;
+  return await this.userRep.createQueryBuilder("user").where("user.id = :userId",  {userId}).getOne();
+  
+ }
 
 }

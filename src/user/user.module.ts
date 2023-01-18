@@ -18,6 +18,7 @@ import { PassJwtStrategy } from './strategy/pass-jwt.strategy.ts/pass-jwt.strate
       })
   ],
   controllers: [UserController],
-  providers: [UserService , PassJwtStrategy] 
+  providers: [UserService , PassJwtStrategy] ,
+  exports:[UserService]
 })
 export class UserModule {}

@@ -1,4 +1,5 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Post, Req } from '@nestjs/common';
+import { Request, request } from 'express';
 import { LoginDto } from './dtos/logindto.ts/logindto.dto';
 import { SigninDto } from './dtos/logindto.ts/signinDto.dto';
 import { UserService } from './user.service';
@@ -9,7 +10,7 @@ constructor(
     private userService: UserService
   ) {
   }
-  @Post()
+  @Post('signin')
   Signin(
     @Body() userData: SigninDto
   ) {
@@ -22,4 +23,5 @@ constructor(
   ) {
     return this.userService.login(userlogin);
   }
+ 
 }

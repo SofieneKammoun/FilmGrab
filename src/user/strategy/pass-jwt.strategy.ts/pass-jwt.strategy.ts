@@ -31,5 +31,6 @@ export class PassJwtStrategy extends PassportStrategy(Strategy) {
     
       throw new UnauthorizedException();
     }
-}
+  }
+  
 }

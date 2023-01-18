@@ -1,9 +1,11 @@
 import { Module } from '@nestjs/common';
+import {MulterModule} from '@nestjs/platform-express'
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
 import { MovieModule } from './movie/movie.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+
 
 
 @Module({
@@ -15,7 +17,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     password: '',
     database: 'filmgrabdb',
     entities: ['dist/**/*.entity{.ts,.js}'],
-    synchronize: true})],
+    synchronize: true}), 
+  MulterModule.register({ 
+    dest: './upload',
+    preservePath: true})],
   controllers: [AppController],
   providers: [AppService],
 })

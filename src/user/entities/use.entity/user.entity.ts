@@ -5,7 +5,8 @@ export class UserEntity {
     @PrimaryGeneratedColumn()
     id : number;
     @Column({
-        length: 50
+        length: 50,
+        unique : true
     })
     name: string;
     @Column()
@@ -16,11 +17,15 @@ export class UserEntity {
         type =>MovieEntity,
         (Movie) => Movie.director
     )
-    uploadedMovies : MovieEntity;
+    uploadedMovies : MovieEntity [];
     @ManyToMany(
         () => MovieEntity )
     @JoinTable()
     watchList : MovieEntity[];
+    @ManyToMany(
+        () => MovieEntity )
+    @JoinTable()
+    watchHist : Array<MovieEntity>;
     @Column()
     password : String;
     @Column()
