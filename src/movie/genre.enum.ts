@@ -1,4 +1,4 @@
-export enum genre{
+export enum genre {
     Action = 'Action',
     Adventure = 'Adventure',
     Animation = 'Animation',

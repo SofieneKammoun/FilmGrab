@@ -2,12 +2,12 @@
 import { IsUrl } from 'class-validator';
 import { genre } from '../../genre.enum';
 import { UserEntity } from 'src/user/entities/use.entity/user.entity';
-import {Entity ,PrimaryGeneratedColumn , Column, CreateDateColumn, UpdateDateColumn , ManyToOne} from 'typeorm'
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne } from 'typeorm'
 
 @Entity('movie')
 export class MovieEntity {
     @PrimaryGeneratedColumn()
-    id : number;
+    id: number;
 
     @Column({
         length: 50
@@ -16,18 +16,19 @@ export class MovieEntity {
 
     @Column({
         type: 'enum',
-        enum: genre,})
-    movieGenre : genre;
+        enum: genre,
+    })
+    movieGenre: genre;
 
 
     @ManyToOne(
-        type =>UserEntity,
-       (user)=>user.uploadedMovies
+        type => UserEntity,
+        (user) => user.uploadedMovies
     )
-    director : UserEntity;
+    director: UserEntity;
 
     @Column({
-        length : 500
+        length: 500
     })
     synopsis: String;
 
@@ -38,16 +39,16 @@ export class MovieEntity {
     poster: String;
 
     @Column()
-    views : number;
-    
+    views: number;
+
     @Column()
     movieLink: String;
 
     @CreateDateColumn()
-    createdAt : Date;
+    createdAt: Date;
 
     @UpdateDateColumn()
-    updatedAt : Date ; 
-    
+    updatedAt: Date;
+
 
 }

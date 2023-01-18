@@ -7,10 +7,9 @@ import { UserEntity } from 'src/user/entities/use.entity/user.entity';
 import { UserModule } from 'src/user/user.module';
 
 @Module({
-  imports:[TypeOrmModule.forFeature([MovieEntity,UserEntity]), 
-          
-          UserModule],
+  imports: [TypeOrmModule.forFeature([MovieEntity, UserEntity]),
+    UserModule],
   controllers: [MovieController],
   providers: [MovieService]
 })
-export class MovieModule {}
+export class MovieModule { }
